@@ -1,25 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from 'react-redux';
+import { store } from './store';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { HeartRateZoneDashboard } from './components/HeartRateZoneDashboard';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#1976d2',
+    },
+    secondary: {
+      main: '#dc004e',
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <CssBaseline />
+          <div style={{
+            minHeight: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+            backgroundColor: '#f5f5f5',
+            padding: '1rem',
+          }}>
+            <HeartRateZoneDashboard minimal={true} />
+          </div>
+        </Router>
+      </ThemeProvider>
+    </Provider>
   );
 }
 
