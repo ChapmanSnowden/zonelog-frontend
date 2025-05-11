@@ -1,7 +1,7 @@
 {
-  "name": "frontend",
+  "name": "zonelog-frontend",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
@@ -27,22 +27,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
-    "install": "pnpm install",
-    "build": "pnpm run build",
-    "start": "pnpm run start",
-    "test": "pnpm run test",
-    "eject": "pnpm run eject",
-    "dev": "pnpm run dev",
-    "serve": "pnpm run serve"
-  },
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "dev": "react-scripts start",
-    "serve": "serve -s build"
-  }
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
